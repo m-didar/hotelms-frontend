@@ -6,7 +6,7 @@ import './Header.css'
 
 const useStyles = makeStyles({
     header: {
-        backgroundColor: "#20C1BD",
+        backgroundColor: "#1b1c1d",
         padding: "15px 100px"
     },
     logo: {
@@ -15,7 +15,7 @@ const useStyles = makeStyles({
         color: "#FFFEFE",
         border: "2px solid #FFFEFE",
         borderRadius: "2px",
-        padding: "8px",
+        padding: "4px 8px",
         cursor: "pointer"
     },
     login_btn: {
