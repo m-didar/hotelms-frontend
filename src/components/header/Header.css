@@ -1,0 +1,10 @@
+.MuiAppBar-root.MuiAppBar-colorPrimary {
+    background-color: #20C1BD;
+}
+
+.header_btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 170px;
+}
