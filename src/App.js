@@ -2,8 +2,10 @@ import React from 'react'
 import Header from "./components/header"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from "./pages/LoginPage";
+import ClerkPage from "./pages/ClerkPage";
 import Promo from "./components/promo";
-import HomePage from './pages/homepage/HomePage';
+import HomePage from "./pages/homepage/HomePage";
+import ManagerPage from "./pages/ManagerPage";
 
 
 function App() {
