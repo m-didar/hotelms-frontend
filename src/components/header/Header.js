@@ -4,6 +4,7 @@ import { AppBar, Toolbar, Typography, Button, Divider } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import './Header.css'
 import LoginModal from "../loginmodal";
+import SignupModal from "../signupmodal";
 
 const useStyles = makeStyles({
     header: {
@@ -34,6 +35,7 @@ const Header = () => {
 
     const { header, logo, login_btn, toolbar } = useStyles()
     const [loginModalOpen, setLoginModalOpen] = useState(false)
+    const [signUpModalOpen, setSignUpModalOpen] = useState(false)
 
     const handleLoginClick = () => {
         setLoginModalOpen(true)
@@ -41,6 +43,14 @@ const Header = () => {
 
     const handleLoginClose = () => {
         setLoginModalOpen(false)
+    }
+
+    const handleSignUpClick = () => {
+        setSignUpModalOpen(true)
+    }
+
+    const handleSignUpClose = () => {
+        setSignUpModalOpen(false)
     }
 
     return (
@@ -53,9 +63,10 @@ const Header = () => {
                     </Button>
                     <LoginModal open={loginModalOpen} handleClose={handleLoginClose} />
                     <Divider orientation="vertical" flexItem={true} color="#FFFEFE" variant="middle" />
-                    <Button variant="outlined" to='/' component={Link} color="inherit" className={login_btn}>
+                    <Button onClick={handleSignUpClick} variant="outlined" to='/' component={Link} color="inherit" className={login_btn}>
                         Sign up
                     </Button>
+                    <SignupModal open={signUpModalOpen} handleClose={handleSignUpClose} />
                 </div>
             </Toolbar>
         </AppBar>
