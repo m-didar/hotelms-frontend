@@ -19,6 +19,7 @@ const HotelSearch = () => {
 
     const handleClick = () => {
         const data = { city, checkInDate, checkOutDate, roomType }
+
         console.log(data)
     }
 

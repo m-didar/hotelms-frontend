@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Modal, Box, Typography, TextField, Divider, Chip, Button } from '@mui/material'
+import {getCurrentUser, login} from '../../services/authentication'
 import './LoginModal.css'
 
 const style = {
@@ -19,10 +20,17 @@ const fieldStyle = {
     m: '10px 0'
 }
 
-const LoginModal = ({ open, handleClose }) => {
+const LoginModal = ({ open, handleClose, user, setUser, history }) => {
 
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
+    const [validationErrors, setValidationErrors] = useState({
+        email: '',
+        password: ''
+    })
+    const [message, setMessage] = useState('')
+    const [loading, setLoading] = useState(true)
+
 
     const handlePassChange = (event) => {
         setPassword(event.target.value)
@@ -32,8 +40,35 @@ const LoginModal = ({ open, handleClose }) => {
         setEmail(event.target.value)
     }
 
-    const handleLogin = () => {
+    const handleLogin = (e) => {
+        e.preventDefault()
+        if (!email) setValidationErrors({
+            email: 'This field is required',
+            password: validationErrors.password
+        })
+        if (!password) setValidationErrors({
+            email: validationErrors.email,
+            password: 'This field is required'
+        })
 
+        if (!validationErrors.email && !validationErrors.password) {
+            login({ email, password })
+                .then(() => {
+                    const { role } = getCurrentUser()
+                    setUser()
+                    if (role === 'guest') history.push('/')
+                    else if (role === 'clerk') history.push('/clerk')
+                    else if (role === 'manager') history.push('/manager')
+                })
+                .catch(err => {
+                    const resMessage = (err.response && err.response.data && err.response.data.message) || err.message || err.toString()
+
+                    setLoading(false)
+                    setMessage(resMessage)
+                })
+        } else {
+            setLoading(false)
+        }
     }
 
     return (
@@ -42,11 +77,13 @@ const LoginModal = ({ open, handleClose }) => {
             onClose={handleClose}
         >
             <Box sx={style}>
-                <Divider fullWidth color="#000">
+                <Divider color="#000">
                     <Chip label="LOG IN" />
                 </Divider>
                 <Typography sx={{ fontWeight: 500, textTransform: 'uppercase', m: '25px 0 10px' }} variant="h5" component="h5">Welcome to PIKA</Typography>
                 <TextField
+                    error={validationErrors.email ? true : false}
+                    helperText={validationErrors.email ? email : ''}
                     type="email"
                     sx={fieldStyle}
                     value={email}
@@ -56,6 +93,8 @@ const LoginModal = ({ open, handleClose }) => {
                     onChange={handleEmailChange}
                 />
                 <TextField
+                    error={validationErrors.password ? true : false}
+                    helperText={validationErrors.password ? validationErrors.password : ''}
                     sx={fieldStyle}
                     id="pass-field"
                     type='password'

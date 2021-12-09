@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import { Card, CardActionArea, CardContent, CardMedia, Chip, Grid, Typography, Collapse, Button, Modal, Box, Divider, Select, FormControl, InputLabel, MenuItem } from "@mui/material";
 import './HotelCard.css'
+import {getRoomsByHotel_Id} from "../../services/api";
 
 const style = {
     position: 'absolute',
@@ -15,11 +16,24 @@ const style = {
     p: 4,
 }
 
-const HotelCard = () => {
+const HotelCard = ({ hotel }) => {
 
     const [expanded, setExpanded] = useState(false)
     const [openModal, setOpenModal] = useState(false)
+    const [roomTypes, setRoomTypes] = useState([])
     const [roomType, setRoomType] = useState('')
+
+    // const loadRoomsByHotel = () => {
+    //     getRoomsByHotel_Id(hotel.id)
+    //         .then(res => {
+    //             setRoomTypes(res)
+    //         })
+    //         .catch(err => console.log(err))
+    // }
+
+    // useEffect(() => {
+    //     loadRoomsByHotel()
+    // }, [])
 
     const handleCardClick = () => {
         setExpanded(!expanded)
@@ -38,7 +52,7 @@ const HotelCard = () => {
     }
 
     return (
-        <Grid item xs={4}>
+        <Grid item xs={4} >
             <Card sx={{ width: '100%' }}>
                 <CardActionArea onClick={handleCardClick}>
                     <CardMedia
@@ -50,9 +64,10 @@ const HotelCard = () => {
                     <CardContent>
                         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>City, Country</Typography>
                         <Typography variant="h5" component="div">Hotel Name</Typography>
-                        <Typography sx={{ mb: 1.5 }} color="text.secondary">hotel address</Typography>
+                        <Typography sx={{ mb: 1.5 }} color="text.secondary">Address</Typography>
                         <Typography variant="body2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Typography>
                         <Typography sx={{ fontSize: 13, marginTop: 1, display: 'inline-block' }} component="div">Room types: </Typography>
+                        {/*{roomTypes.map(room => <Chip size="small" label={room} />)}*/}
                         <Chip size="small" label="Single" />  <Chip size="small" label="Double" />  <Chip size="small" label="Suite" />
                     </CardContent>
                 </CardActionArea>
@@ -103,6 +118,7 @@ const HotelCard = () => {
                                         label="Room Type"
                                         onChange={handleRoomChange}
                                     >
+                                        {/*{roomTypes.map(room => <MenuItem value={room}>{room}</MenuItem>)}*/}
                                         <MenuItem value="single">Single</MenuItem>
                                         <MenuItem value="double">Double</MenuItem>
                                         <MenuItem value="suite">Suite</MenuItem>
