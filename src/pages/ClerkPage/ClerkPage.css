@@ -1,10 +1,26 @@
+* {
+    margin:50%;
+}
+
 h2{
     margin: 0;
     text-align: left;
     box-sizing: border-box;
 }
 
+label, h4{
+    margin: 0;
+    margin-left: 17cm;
+}
+
+.inp{
+    text-align: center;
+    margin-left: 17cm;
+    content: normal;
+}
+
 h3{
+    text-align: center;
     text-indent: 70px;
 }
 
@@ -16,16 +32,12 @@ h3{
     text-align: center;
 }
 
-.reservations {
-    -webkit-column-break-before: always;
-    -moz-column-break-before: always;
-}
-
-.button {
-    width: 13%;
+.button1 {
+    width: 15%;
     display: block;
     block-size: 1cm;
-    margin-left: 3%;
+    margin-left: 18cm;
+    background-color:rgb(219, 64, 64);
 }
 
 .but {
@@ -33,3 +45,7 @@ h3{
     block-size: 30px;
 }
 
+.reservations {
+    margin: auto;
+    margin-left: 17cm;
+}
