@@ -8,7 +8,6 @@ function App() {
   return (
     <Router className="app">
       <Header />
-      <Promo />
       <Routes>
           <Route exact path="/" element={<HomePage />} />
       </Routes>

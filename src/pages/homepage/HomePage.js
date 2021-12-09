@@ -1,12 +1,15 @@
 import React from 'react'
-import { Container } from '@mui/material'
+import { Grid } from '@mui/material'
+import Promo from '../../components/promo'
+import Hotels from '../../components/hotels'
 import './HomePage.css'
 
 const HomePage = () => {
     return (
-        <Container maxWidth="md">
-
-        </Container>
+        <div className="home">
+            <Promo />
+            <Hotels />
+        </div>
     )
 }
 
