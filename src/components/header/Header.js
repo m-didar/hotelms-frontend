@@ -114,7 +114,7 @@ const Header = ({ user, setUser }) => {
                         horizontal: 'right'
                     }}
                 >
-                    <Button sx={{ width: 150, p: 2 }} component={Link} to="/">My Account</Button>
+                    <Button sx={{ width: 150, p: 2 }} component={Link} to="/profile">My Account</Button>
                     <Divider />
                     <Button onClick={handleLogOutClick} sx={{ width: '100%', p: 1, borderRadius: 0 }} color="error" variant="contained">Log out</Button>
                 </Popover>
@@ -125,7 +125,7 @@ const Header = ({ user, setUser }) => {
     return (
         <AppBar className={header} position="fixed">
             <Toolbar className={toolbar}>
-                <Typography variant="h6" component="h1" className={logo}>PIKA Hotels</Typography>
+                <Button component={Link} to="/"><Typography  variant="h6" component="h1" className={logo}>PIKA Hotels</Typography></Button>
                 {user ? renderProfileBtn() : renderAuthBtns()}
             </Toolbar>
         </AppBar>

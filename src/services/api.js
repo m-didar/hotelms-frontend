@@ -77,7 +77,7 @@ export const getHotelsByCiyt = async (city) => {
 }
 
 export const getAvailableHotels = async (destination, r_type, check_in, check_out) => {
-    const res = await instance.get(`hotels/available?destination=${destination}&r_type=${r_type}&check_in=${check_in}&check_out=${check_out}`)
+    const res = await instance.get(`hotels?destination=${destination}&r_type=${r_type}&check_in=${check_in}&check_out=${check_out}`)
     return res.data
 }
 

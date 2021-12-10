@@ -1,0 +1,51 @@
+.clerk {
+    margin-top: 100px;
+}
+
+.h2{
+    margin: 0;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.label, .h4{
+    margin: 0;
+    margin-left: 17cm;
+}
+
+.inp{
+    text-align: center;
+    margin-left: 17cm;
+    content: normal;
+}
+
+.h3{
+    text-align: center;
+    text-indent: 70px;
+}
+
+.form-group {
+    text-align: center;
+}
+
+.page input[type="submit"] {
+    text-align: center;
+}
+
+.button1 {
+    width: 15%;
+    display: block;
+    block-size: 1cm;
+    margin-left: 18cm;
+    background-color:rgb(219, 64, 64);
+}
+
+.but {
+    width: 5%;
+    block-size: 30px;
+}
+
+.reservations {
+    margin: auto;
+    margin-left: 17cm;
+}

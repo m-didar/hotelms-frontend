@@ -1,0 +1,43 @@
+.manager {
+    height: 120vh;
+    width: 100%;
+    background:#fffefe;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-color: #201e20;
+    padding: 50px;
+}
+
+.manager_div {
+
+    width: 100%;
+    background: #FFFEFE;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    top: 100px;
+    padding: 10px;
+}
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color:#201e20 !important;
+}
+
+.MuiFormLabel-root.Mui-focused {
+    color:#201e20 !important;
+    margin-left: 10px;
+}
+.txtfield {
+    width: 190px;
+}
+.logo {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 600;
+    color: #FFEFFE;
+    cursor: pointer;
+}
+.MuiFormLabel-root.Mui-focused {
+    margin-left: 0px;
+}

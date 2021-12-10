@@ -18,9 +18,22 @@ const HotelSearch = () => {
     const [roomType, setRoomType] = new useState('')
 
     const handleClick = () => {
-        const data = { city, checkInDate, checkOutDate, roomType }
+        if (!city || !checkInDate || !checkOutDate || !roomType) alert("Please fll all the felds")
+        else {
+            const frstDate =
+                checkInDate.getFullYear() + "-" +
+                checkInDate.getDate().toString().padStart(2, '0') + "-" +
+                checkInDate.getMonth().toString().padStart(2, '0')
+            const secndDate =
+                checkOutDate.getFullYear() + "-" +
+                checkOutDate.getDate().toString().padStart(2, '0') + "-" +
+                checkOutDate.getMonth().toString().padStart(2, '0')
+            const data = { city, frstDate, secndDate, roomType }
 
-        console.log(data)
+            
+            console.log(data)
+        }
+
     }
 
     return (
